@@ -182,14 +182,14 @@ export default function Index() {
               className="hero-heading-line"
               style={{ animationDelay: "0.1s" }}
             >
-              Share Your
+              Review
             </span>
             <br />
             <span
               className="hero-heading-line relative inline-block"
               style={{ animationDelay: "0.3s" }}
             >
-              Feedback
+              Nest
               <div className="absolute bottom-2 left-0 w-full h-1 bg-gradient-to-r from-secondary to-primary opacity-50 animate-pulse"></div>
             </span>
           </h2>

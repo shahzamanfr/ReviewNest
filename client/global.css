@@ -421,6 +421,28 @@
     }
   }
 
+  @keyframes textReveal {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes underlineReveal {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
   @keyframes float-elegant {
     0% {
       transform: translateY(0px) translateX(0px) rotateX(0deg) scale(1);

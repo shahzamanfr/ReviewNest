@@ -228,14 +228,14 @@ export default function Index() {
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <AnimateOnScroll>
             <h3
-              className="text-6xl md:text-7xl font-bold mb-20 text-center"
+              className="text-5xl md:text-6xl font-medium mb-20 text-center"
               style={{
-                fontFamily: '"IBM Plex Sans", sans-serif',
-                fontWeight: 600,
-                letterSpacing: "-0.02em",
+                fontFamily: '"Sora", sans-serif',
+                fontWeight: 400,
+                letterSpacing: "-0.01em",
               }}
             >
-              Our Systems
+              Projects
             </h3>
           </AnimateOnScroll>
 

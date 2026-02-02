@@ -195,7 +195,7 @@ export default function Index() {
           </h2>
 
           <p
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed animate-slide-up"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up"
             style={{
               fontFamily: '"Inter", sans-serif',
               fontWeight: 400,
@@ -205,27 +205,16 @@ export default function Index() {
             Evaluate carefully. Review honestly.
           </p>
 
-          <p
-            className="text-base md:text-lg text-muted-foreground/80 max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up"
+          <blockquote
+            className="text-xl md:text-2xl text-foreground max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up relative"
             style={{
               fontFamily: '"Inter", sans-serif',
               fontWeight: 400,
               animationDelay: "0.1s",
             }}
           >
-            Every perspective matters.
-          </p>
-
-          <p
-            className="text-lg md:text-xl italic text-primary/80 max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up"
-            style={{
-              fontFamily: '"Inter", sans-serif',
-              fontWeight: 500,
-              animationDelay: "0.15s",
-            }}
-          >
-            "Great work isn't created in isolation. It's refined through honest feedback and diverse perspectives."
-          </p>
+            <span className="text-secondary font-bold mr-2">"</span>Great work isn't created in isolation. It's refined through honest feedback and diverse perspectives.<span className="text-secondary font-bold ml-2">"</span>
+          </blockquote>
 
           <button
             onClick={() =>

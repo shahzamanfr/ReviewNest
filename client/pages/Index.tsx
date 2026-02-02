@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, Lightbulb, Zap, Grid3x3, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import ParticleField from "../components/ParticleField";
+import GradientBg from "../components/GradientBg";
 
 const projects = [
   {

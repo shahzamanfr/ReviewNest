@@ -15,6 +15,7 @@ export interface ReviewData {
     usefulness: number;
   };
   reply?: string;
+  detailedComment?: string;
   created_at?: string;
 }
 
@@ -46,6 +47,9 @@ export default function ReviewForm({
       website: 0,
       usefulness: 0,
     },
+  );
+  const [detailedComment, setDetailedComment] = useState(
+    editingReview?.detailedComment || "",
   );
   const [hoveredDetailed, setHoveredDetailed] = useState<string | null>(null);
 
@@ -81,6 +85,7 @@ export default function ReviewForm({
       overallRating,
       comment,
       detailedRating,
+      detailedComment,
     });
     if (!editingReview) resetForm();
   };
@@ -90,6 +95,7 @@ export default function ReviewForm({
     setComment("");
     setOverallRating(0);
     setDetailedRating({ idea: 0, ui: 0, website: 0, usefulness: 0 });
+    setDetailedComment("");
     setStep("basic");
   };
 
@@ -105,12 +111,20 @@ export default function ReviewForm({
 
         {(["idea", "ui", "website", "usefulness"] as const).map((category) => (
           <div key={category}>
-            <label
-              className="block text-xs text-muted-foreground mb-2.5 uppercase tracking-wider font-medium capitalize"
-              style={{ fontFamily: '"Inter", sans-serif' }}
-            >
-              {category}
-            </label>
+            <div className="flex justify-between items-center mb-2.5">
+              <label
+                className="block text-xs text-muted-foreground uppercase tracking-wider font-medium capitalize"
+                style={{ fontFamily: '"Inter", sans-serif' }}
+              >
+                {category}
+              </label>
+              <span className="text-[10px] text-muted-foreground/50 italic">
+                {category === 'idea' && 'Originality & Concept'}
+                {category === 'ui' && 'Visual Polish'}
+                {category === 'website' && 'Tech Stack & Performance'}
+                {category === 'usefulness' && 'Problem Solving'}
+              </span>
+            </div>
             <div className="flex gap-3">
               {[1, 2, 3, 4, 5].map((star) => (
                 <button
@@ -139,6 +153,23 @@ export default function ReviewForm({
             </div>
           </div>
         ))}
+
+        <div>
+          <label
+            className="block text-xs text-muted-foreground mb-2 uppercase tracking-wider font-medium"
+            style={{ fontFamily: '"Inter", sans-serif' }}
+          >
+            Technical Thoughts
+          </label>
+          <textarea
+            value={detailedComment}
+            onChange={(e) => setDetailedComment(e.target.value)}
+            placeholder="What's the technical 'why' behind these ratings? (e.g. Code quality, UX polish, etc.)"
+            rows={3}
+            className="w-full px-3 py-2 rounded bg-secondary/30 border border-border/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all resize-none text-sm placeholder:text-muted-foreground/50"
+            style={{ fontFamily: '"Inter", sans-serif' }}
+          />
+        </div>
 
         <div className="flex gap-2.5 pt-4">
           <button

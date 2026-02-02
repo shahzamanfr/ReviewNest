@@ -156,7 +156,8 @@ export default function Index() {
             >
               Projects
             </a>
-            <button className="px-6 py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:bg-primary/90 transition-all duration-200 interactive-button shadow-md hover:shadow-lg"
+            <button
+              className="px-6 py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:bg-primary/90 transition-all duration-200 interactive-button shadow-md hover:shadow-lg"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
               Start
@@ -320,7 +321,8 @@ export default function Index() {
               className="text-base text-muted-foreground leading-relaxed"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              A platform for sharing honest, constructive feedback on projects. Help creators improve through thoughtful reviews.
+              A platform for sharing honest, constructive feedback on projects.
+              Help creators improve through thoughtful reviews.
             </p>
           </div>
           <div className="border-t border-border/30 pt-8 text-center">
@@ -328,7 +330,10 @@ export default function Index() {
               className="text-sm text-muted-foreground"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              Built by <span className="font-semibold text-foreground">Mohammed Shahzaman</span>
+              Built by{" "}
+              <span className="font-semibold text-foreground">
+                Mohammed Shahzaman
+              </span>
             </p>
             <p
               className="text-xs text-muted-foreground/70 mt-2"

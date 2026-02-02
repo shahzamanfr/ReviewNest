@@ -143,13 +143,17 @@ export default function Index() {
       <div className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl animate-fade-in">
         <div className="container mx-auto px-4 md:px-6 py-4 max-w-7xl flex items-center justify-between">
           <h1
-            className="text-[10px] md:text-sm font-semibold tracking-[0.2em] text-foreground truncate max-w-[150px] md:max-w-none"
+            className="text-[11px] md:text-sm font-semibold tracking-[0.15em] md:tracking-[0.2em] text-foreground flex items-center gap-1.5"
             style={{
               fontFamily: '"JetBrains Mono", monospace',
               fontWeight: 500,
             }}
           >
-            ▲ REVIEW NEST SHAHZAMAN
+            <span className="text-primary hidden sm:inline">▲</span>
+            <span className="flex flex-wrap items-baseline gap-1">
+              <span>REVIEW NEST</span>
+              <span className="text-muted-foreground font-normal overflow-visible">SHAHZAMAN</span>
+            </span>
           </h1>
           <nav className="flex items-center gap-6">
             <a

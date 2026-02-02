@@ -179,10 +179,7 @@ export default function Index() {
           >
             <span>Review</span>
             <br />
-            <span className="relative inline-block">
-              Nest
-              <div className="absolute bottom-2 left-0 w-full h-1 bg-gradient-to-r from-secondary to-primary opacity-50 animate-pulse"></div>
-            </span>
+            <span>Nest</span>
           </h2>
 
 

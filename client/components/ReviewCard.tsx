@@ -10,16 +10,21 @@ export default function ReviewCard({ review, index }: ReviewCardProps) {
   return (
     <div
       key={index}
-      className="border border-border rounded-lg p-6 hover:bg-secondary/20 transition-colors"
+      className="border border-border rounded-lg p-6 md:p-8 hover:shadow-md transition-all duration-200 bg-card"
     >
-      <div className="flex items-start justify-between mb-4">
-        <div>
-          <h4 className="font-semibold text-foreground">{review.name}</h4>
-          <div className="flex gap-1 mt-2">
+      <div className="flex items-start justify-between mb-6">
+        <div className="flex-1">
+          <h4
+            className="font-medium text-foreground text-lg"
+            style={{ fontFamily: '"Sora", sans-serif', fontWeight: 400 }}
+          >
+            {review.name}
+          </h4>
+          <div className="flex gap-2 mt-3">
             {[1, 2, 3, 4, 5].map((star) => (
               <Star
                 key={star}
-                size={16}
+                size={18}
                 className={`${
                   star <= review.overallRating
                     ? "fill-primary text-primary"
@@ -29,36 +34,53 @@ export default function ReviewCard({ review, index }: ReviewCardProps) {
             ))}
           </div>
         </div>
-        <div className="text-right">
-          <div className="text-2xl font-semibold text-primary">
+        <div className="text-right pl-4">
+          <div
+            className="text-3xl font-medium text-primary"
+            style={{ fontFamily: '"Inter", sans-serif' }}
+          >
             {review.overallRating}
           </div>
-          <div className="text-xs text-muted-foreground">/ 5</div>
+          <div
+            className="text-xs text-muted-foreground mt-1"
+            style={{ fontFamily: '"Inter", sans-serif' }}
+          >
+            out of 5
+          </div>
         </div>
       </div>
 
       {review.comment && (
-        <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+        <p
+          className="text-muted-foreground text-sm md:text-base leading-relaxed mb-6"
+          style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}
+        >
           {review.comment}
         </p>
       )}
 
       {review.detailedRating && (
-        <div className="border-t border-border pt-4 mt-4">
-          <p className="text-xs font-semibold text-foreground mb-3 uppercase tracking-wide">
+        <div className="border-t border-border pt-6 mt-6">
+          <p
+            className="text-xs font-medium text-foreground mb-4 uppercase tracking-widest"
+            style={{ fontFamily: '"Inter", sans-serif' }}
+          >
             Detailed Ratings
           </p>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-6">
             {Object.entries(review.detailedRating).map(([key, value]) => (
               <div key={key}>
-                <p className="text-xs text-muted-foreground mb-1 capitalize">
+                <p
+                  className="text-xs text-muted-foreground mb-2 capitalize font-medium"
+                  style={{ fontFamily: '"Inter", sans-serif' }}
+                >
                   {key}
                 </p>
-                <div className="flex gap-1">
+                <div className="flex gap-1.5">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <Star
                       key={star}
-                      size={12}
+                      size={14}
                       className={`${
                         star <= value
                           ? "fill-secondary text-secondary"

@@ -149,7 +149,7 @@ export default function Index() {
               fontWeight: 500,
             }}
           >
-            ▲ REVIEW
+            ▲ REVIEW NEST SHAHZAMAN
           </h1>
           <nav className="flex items-center gap-6">
             <a
@@ -358,7 +358,7 @@ export default function Index() {
               className="text-xs text-muted-foreground/70 mt-2"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              © 2026 Review Platform. All rights reserved.
+              © 2026 Review Nest Shahzaman. All rights reserved.
             </p>
           </div>
         </div>

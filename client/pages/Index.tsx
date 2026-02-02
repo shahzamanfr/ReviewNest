@@ -213,7 +213,7 @@ export default function Index() {
               animationDelay: "0.1s",
             }}
           >
-            Every perspective matters. Help creators elevate their work through thoughtful, constructive feedback.
+            Every perspective matters.
           </p>
 
           <button

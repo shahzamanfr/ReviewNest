@@ -208,20 +208,20 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
         />
       </div>
 
-      <div className="pt-2 space-y-2">
+      <div className="pt-3 space-y-2.5">
         <button
           onClick={() => handleBasicSubmit(false)}
-          className="w-full px-4 py-3 rounded-lg bg-primary text-primary-foreground font-medium transition-all duration-200 hover:bg-primary/90 transform hover:scale-105 text-sm"
+          className="w-full px-4 py-3 rounded-lg bg-primary text-primary-foreground font-medium transition-all duration-200 hover:bg-primary/90 text-sm active:scale-95"
           style={{ fontFamily: '"Inter", sans-serif' }}
         >
-          Submit Review
+          Submit
         </button>
         <button
           onClick={() => handleBasicSubmit(true)}
-          className="w-full px-4 py-3 rounded-lg border border-border hover:bg-secondary/20 transition-all duration-200 font-medium text-sm"
+          className="w-full px-4 py-2.5 rounded-lg border border-border/40 hover:bg-secondary/20 transition-all duration-200 font-medium text-sm"
           style={{ fontFamily: '"Inter", sans-serif' }}
         >
-          Add Detailed Ratings
+          More Details
         </button>
       </div>
     </div>

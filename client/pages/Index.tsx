@@ -278,14 +278,14 @@ export default function Index() {
         <div className="container mx-auto px-4 md:px-6 max-w-6xl text-center">
           <AnimateOnScroll>
             <h3
-              className="text-6xl md:text-7xl font-medium mb-8"
+              className="text-5xl md:text-6xl font-medium mb-8"
               style={{
                 fontFamily: '"Sora", sans-serif',
                 fontWeight: 400,
                 letterSpacing: "-0.01em",
               }}
             >
-              Ready to explore?
+              Ready to review?
             </h3>
           </AnimateOnScroll>
           <AnimateOnScroll delay={100}>
@@ -293,16 +293,16 @@ export default function Index() {
               className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12"
               style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}
             >
-              Each system here started with genuine curiosity and evolved
-              through thinking, building, and iteration.
+              Each project represents effort, creativity, and intention. Your feedback
+              helps identify strengths and opportunities for improvement.
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll delay={200}>
             <button
-              className="px-8 py-4 bg-foreground text-background font-semibold rounded-full hover:opacity-90 transition-all duration-300 transform hover:scale-110 hover:shadow-2xl interactive-button"
-              style={{ fontFamily: '"JetBrains Mono", monospace' }}
+              className="px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-200 hover:shadow-lg interactive-button"
+              style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              → View All Projects
+              Start Reviewing
             </button>
           </AnimateOnScroll>
         </div>

@@ -505,4 +505,20 @@
       reveal-text 1s ease-out 0.3s both,
       float-wave 8s ease-in-out infinite;
   }
+
+  /* Button consistency */
+  button {
+    font-family: "Inter", sans-serif;
+  }
+
+  input,
+  textarea {
+    font-family: "Inter", sans-serif;
+  }
+
+  /* Ensure proper input styling */
+  input::placeholder,
+  textarea::placeholder {
+    color: hsl(var(--muted-foreground));
+  }
 }

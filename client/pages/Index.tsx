@@ -169,23 +169,15 @@ export default function Index() {
 
         <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-6xl text-center">
           <h2
-            className="text-6xl md:text-7xl lg:text-8xl mb-8 mt-8 leading-tight animate-slide-up hero-heading"
+            className="text-6xl md:text-7xl lg:text-8xl mb-8 mt-8 leading-tight"
             style={{
               fontFamily: '"Sora", sans-serif',
               fontWeight: 400,
             }}
           >
-            <span
-              className="hero-heading-line"
-              style={{ animationDelay: "0.1s" }}
-            >
-              Review
-            </span>
+            <span>Review</span>
             <br />
-            <span
-              className="hero-heading-line relative inline-block"
-              style={{ animationDelay: "0.3s" }}
-            >
+            <span className="relative inline-block">
               Nest
               <div className="absolute bottom-2 left-0 w-full h-1 bg-gradient-to-r from-secondary to-primary opacity-50 animate-pulse"></div>
             </span>

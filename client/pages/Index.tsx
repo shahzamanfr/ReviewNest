@@ -157,7 +157,7 @@ export default function Index() {
               Projects
             </a>
             <button
-              onClick={() => navigate('/')}
+              onClick={() => navigate("/")}
               className="px-6 py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:bg-primary/90 transition-all duration-200 interactive-button shadow-md hover:shadow-lg"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
@@ -169,7 +169,6 @@ export default function Index() {
 
       {/* Hero Section with Particles */}
       <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-
         <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-6xl text-center">
           <h2
             className="text-6xl md:text-7xl lg:text-8xl mb-8 mt-8 leading-tight hero-heading-animate"
@@ -180,12 +179,17 @@ export default function Index() {
           >
             <span className="inline-block animate-text-reveal">Review</span>
             <br />
-            <span className="relative inline-block animate-text-reveal" style={{ animationDelay: "0.2s" }}>
+            <span
+              className="relative inline-block animate-text-reveal"
+              style={{ animationDelay: "0.2s" }}
+            >
               Nest
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-secondary to-primary animate-underline-reveal" style={{ animationDelay: "0.8s" }}></div>
+              <div
+                className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-secondary to-primary animate-underline-reveal"
+                style={{ animationDelay: "0.8s" }}
+              ></div>
             </span>
           </h2>
-
 
           <p
             className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up"
@@ -199,7 +203,7 @@ export default function Index() {
           </p>
 
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate("/")}
             className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-xl animate-slide-up interactive-button"
             style={{
               fontFamily: '"Inter", sans-serif',
@@ -287,7 +291,7 @@ export default function Index() {
           </AnimateOnScroll>
           <AnimateOnScroll delay={200}>
             <button
-              onClick={() => navigate('/')}
+              onClick={() => navigate("/")}
               className="px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-200 hover:shadow-lg interactive-button"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >

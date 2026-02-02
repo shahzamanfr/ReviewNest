@@ -309,33 +309,64 @@ export default function Index() {
       </div>
 
       {/* Footer */}
-      <div className="border-t border-border/50">
-        <div className="container mx-auto px-4 md:px-6 py-16 max-w-6xl text-center">
-          <p
-            className="text-sm text-muted-foreground"
-            style={{ fontFamily: '"IBM Plex Sans", sans-serif' }}
-          >
-            Built with engineering rigor. Your feedback shapes what comes next.
-          </p>
-          <div className="flex items-center justify-center gap-8 mt-8 text-xs text-muted-foreground">
-            <a
-              href="#"
-              className="hover:text-foreground transition-all duration-300 hover:scale-110"
+      <div className="border-t border-border/50 bg-background/50">
+        <div className="container mx-auto px-4 md:px-6 py-16 max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+            <div>
+              <h4
+                className="text-sm font-semibold text-foreground mb-4 uppercase tracking-widest"
+                style={{ fontFamily: '"Inter", sans-serif' }}
+              >
+                About
+              </h4>
+              <p
+                className="text-sm text-muted-foreground leading-relaxed"
+                style={{ fontFamily: '"Inter", sans-serif' }}
+              >
+                A platform for sharing honest, constructive feedback on projects. Help creators improve through thoughtful reviews.
+              </p>
+            </div>
+            <div>
+              <h4
+                className="text-sm font-semibold text-foreground mb-4 uppercase tracking-widest"
+                style={{ fontFamily: '"Inter", sans-serif' }}
+              >
+                Projects
+              </h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><a href="/merit-one" className="hover:text-foreground transition-colors">MeritOne</a></li>
+                <li><a href="/interpret" className="hover:text-foreground transition-colors">Interpret</a></li>
+                <li><a href="/automation-system" className="hover:text-foreground transition-colors">Automation System</a></li>
+                <li><a href="/movella" className="hover:text-foreground transition-colors">Movella</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4
+                className="text-sm font-semibold text-foreground mb-4 uppercase tracking-widest"
+                style={{ fontFamily: '"Inter", sans-serif' }}
+              >
+                Connect
+              </h4>
+              <div className="flex gap-4 text-sm text-muted-foreground">
+                <a href="#" className="hover:text-foreground transition-colors">Twitter</a>
+                <a href="#" className="hover:text-foreground transition-colors">GitHub</a>
+                <a href="#" className="hover:text-foreground transition-colors">Email</a>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-border/30 pt-8 text-center">
+            <p
+              className="text-sm text-muted-foreground"
+              style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              Twitter
-            </a>
-            <a
-              href="#"
-              className="hover:text-foreground transition-all duration-300 hover:scale-110"
+              Built by <span className="font-semibold text-foreground">Mohammed Shahzaman</span>
+            </p>
+            <p
+              className="text-xs text-muted-foreground/70 mt-2"
+              style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              GitHub
-            </a>
-            <a
-              href="#"
-              className="hover:text-foreground transition-all duration-300 hover:scale-110"
-            >
-              Email
-            </a>
+              © 2024 Review Platform. All rights reserved.
+            </p>
           </div>
         </div>
       </div>

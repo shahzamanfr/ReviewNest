@@ -292,9 +292,9 @@ export default function Index() {
           <AnimateOnScroll delay={100}>
             <p
               className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12"
-              style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}
+              style={{ fontFamily: '"Inter", sans-serif', fontWeight: 300 }}
             >
-              Your insights matter. Thoughtful feedback drives growth.
+              Your feedback can make a real difference.
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll delay={200}>

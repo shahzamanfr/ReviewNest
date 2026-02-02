@@ -132,7 +132,7 @@ export default function ProjectReviewPage({
 
           {/* Form Section */}
           <div>
-            <div className="border border-border rounded-lg p-8 sticky top-24 bg-card">
+            <div className="border border-border rounded-lg p-8 sticky top-24 bg-card backdrop-blur-sm bg-card/80">
               <h3
                 className="text-xl font-medium text-foreground mb-3"
                 style={{ fontFamily: '"Sora", sans-serif', fontWeight: 400 }}

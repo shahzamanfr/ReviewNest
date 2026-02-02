@@ -146,23 +146,20 @@ export default function Index() {
               fontWeight: 500,
             }}
           >
-            ▲ SYSTEMS
+            ▲ REVIEW
           </h1>
-          <nav className="flex items-center gap-8">
+          <nav className="flex items-center gap-6">
             <a
-              href="#"
-              className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110"
+              href="#projects"
+              className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300"
+              style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              Work
+              Projects
             </a>
-            <a
-              href="#"
-              className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110"
+            <button className="px-6 py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:bg-primary/90 transition-all duration-200 interactive-button shadow-md hover:shadow-lg"
+              style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              About
-            </a>
-            <button className="px-5 py-2 bg-foreground text-background text-sm font-medium rounded-full hover:opacity-90 transition-all duration-300 transform hover:scale-110 interactive-button shadow-lg hover:shadow-xl">
-              Get Started
+              Start
             </button>
           </nav>
         </div>

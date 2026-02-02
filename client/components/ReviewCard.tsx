@@ -1,7 +1,6 @@
-import { Star, Edit2, Trash2, MessageSquare } from "lucide-react";
+import { Star, Edit2, Trash2 } from "lucide-react";
 import { ReviewData } from "./ReviewForm";
 import { sessionId } from "../lib/supabase";
-import ReplySection from "./ReplySection";
 
 interface ReviewCardProps {
   review: ReviewData;
@@ -102,18 +101,6 @@ export default function ReviewCard({
             </div>
           </div>
           <div className="flex gap-1.5 opacity-0 group-hover/card:opacity-100 transition-opacity">
-            {review.user_id !== sessionId && (
-              <button
-                onClick={() => {
-                  const element = document.getElementById(`reply-section-${review.id}`);
-                  element?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="p-1.5 rounded-full hover:bg-secondary/20 text-muted-foreground hover:text-primary transition-colors"
-                title="Reply to thread"
-              >
-                <MessageSquare size={14} />
-              </button>
-            )}
             {onEdit && review.user_id === sessionId && (
               <button
                 onClick={() => onEdit(review)}
@@ -147,10 +134,6 @@ export default function ReviewCard({
         </div>
       )}
 
-      {/* Threaded Replies Section */}
-      {review.id && (
-        <ReplySection reviewId={review.id} reviewAuthorId={review.user_id || ""} />
-      )}
 
       {review.detailedRating && (
         <div className="ml-16 pt-6">

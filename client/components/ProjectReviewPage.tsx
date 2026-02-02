@@ -164,13 +164,13 @@ export default function ProjectReviewPage({
     <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="border-b border-border sticky top-0 bg-background/95 backdrop-blur-sm z-50">
-        <div className="container mx-auto px-4 md:px-6 py-4 max-w-6xl">
+        <div className="container mx-auto px-4 py-3 md:py-4 max-w-6xl">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
+            className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors text-xs md:text-sm"
             style={{ fontFamily: '"Inter", sans-serif' }}
           >
-            <ArrowLeft size={18} />
+            <ArrowLeft size={16} className="md:w-[18px] md:h-[18px]" />
             <span>Back</span>
           </Link>
         </div>

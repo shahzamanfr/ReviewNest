@@ -22,7 +22,7 @@ const projects = [
   },
   {
     id: "automation-system",
-    title: "Bot AI Agents",
+    title: "AI Agent",
     description:
       "A self-running content pipeline. Scripts, audio, visuals, publishing—all automated. Built cleanly, from concept to execution.",
     icon: Zap,
@@ -143,7 +143,7 @@ export default function Index() {
       <div className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl animate-fade-in">
         <div className="container mx-auto px-4 md:px-6 py-4 max-w-7xl flex items-center justify-between">
           <h1
-            className="text-sm font-semibold tracking-widest text-foreground"
+            className="text-[10px] md:text-sm font-semibold tracking-[0.2em] text-foreground truncate max-w-[150px] md:max-w-none"
             style={{
               fontFamily: '"JetBrains Mono", monospace',
               fontWeight: 500,

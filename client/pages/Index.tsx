@@ -211,13 +211,13 @@ export default function Index() {
                 .getElementById("projects")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="inline-flex items-center gap-3 px-8 py-4 bg-foreground text-background font-semibold rounded-full hover:opacity-90 transition-all duration-300 transform hover:scale-110 hover:shadow-2xl animate-slide-up interactive-button relative"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-xl animate-slide-up interactive-button"
             style={{
-              fontFamily: '"JetBrains Mono", monospace',
+              fontFamily: '"Inter", sans-serif',
               animationDelay: "0.1s",
             }}
           >
-            → Explore Our Work
+            Explore Projects
             <ArrowRight size={20} />
           </button>
         </div>

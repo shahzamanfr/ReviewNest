@@ -292,8 +292,7 @@ export default function Index() {
               className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12"
               style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}
             >
-              Each project represents effort, creativity, and intention. Your feedback
-              helps identify strengths and opportunities for improvement.
+              Your insights matter. Thoughtful feedback drives growth.
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll delay={200}>

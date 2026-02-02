@@ -216,6 +216,17 @@ export default function Index() {
             Every perspective matters.
           </p>
 
+          <p
+            className="text-lg md:text-xl italic text-primary/80 max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up"
+            style={{
+              fontFamily: '"Inter", sans-serif',
+              fontWeight: 500,
+              animationDelay: "0.15s",
+            }}
+          >
+            "Great work isn't created in isolation. It's refined through honest feedback and diverse perspectives."
+          </p>
+
           <button
             onClick={() =>
               document

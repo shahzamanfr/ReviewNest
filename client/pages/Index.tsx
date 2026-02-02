@@ -168,7 +168,6 @@ export default function Index() {
 
       {/* Hero Section with Particles */}
       <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <FloatingParticles />
 
         <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-6xl text-center">
           <h2

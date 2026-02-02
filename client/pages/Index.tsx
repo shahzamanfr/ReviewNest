@@ -171,7 +171,7 @@ export default function Index() {
 
         <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-6xl text-center">
           <h2
-            className="text-7xl md:text-8xl lg:text-9xl mb-8 mt-8 leading-tight animate-slide-up hero-heading"
+            className="text-6xl md:text-7xl lg:text-8xl mb-8 mt-8 leading-tight animate-slide-up hero-heading"
             style={{
               fontFamily: '"Sora", sans-serif',
               fontWeight: 400,
@@ -181,14 +181,14 @@ export default function Index() {
               className="hero-heading-line"
               style={{ animationDelay: "0.1s" }}
             >
-              Build with
+              Share Your
             </span>
             <br />
             <span
               className="hero-heading-line relative inline-block"
               style={{ animationDelay: "0.3s" }}
             >
-              Intent
+              Feedback
               <div className="absolute bottom-2 left-0 w-full h-1 bg-gradient-to-r from-secondary to-primary opacity-50 animate-pulse"></div>
             </span>
           </h2>
@@ -201,8 +201,8 @@ export default function Index() {
               animationDelay: "0.05s",
             }}
           >
-            Real problems deserve practical solutions. We explore, iterate, and
-            build systems designed to last.
+            Review projects built with care and intention. Share your honest
+            feedback and help shape what comes next.
           </p>
 
           <button

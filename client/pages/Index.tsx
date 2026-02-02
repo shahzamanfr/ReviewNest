@@ -199,11 +199,11 @@ export default function Index() {
             className="text-xl md:text-2xl text-foreground max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up relative"
             style={{
               fontFamily: '"Inter", sans-serif',
-              fontWeight: 400,
+              fontWeight: 300,
               animationDelay: "0.1s",
             }}
           >
-            <span className="text-secondary font-bold mr-2">"</span>Great work isn't created in isolation. It's refined through honest feedback and diverse perspectives.<span className="text-secondary font-bold ml-2">"</span>
+            <span className="text-secondary font-bold mr-2">"</span>Your feedback can make a real difference.<span className="text-secondary font-bold ml-2">"</span>
           </blockquote>
 
           <button

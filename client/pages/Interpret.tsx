@@ -6,6 +6,7 @@ export default function Interpret() {
       projectName="Interpret"
       projectTitle="Interpret"
       description="Communication analysis and feedback. Understand how you communicate, where you can improve, and why it matters."
+      projectLink="interpret.blog"
     />
   );
 }

@@ -10,6 +10,7 @@ const projects = [
     description:
       "A skill-exchange platform where ability matters more than affordability. Trade skills, build experience, prove yourself through real work.",
     icon: Lightbulb,
+    link: "meritone.in"
   },
   {
     id: "interpret",
@@ -17,19 +18,21 @@ const projects = [
     description:
       "Communication analysis and feedback. Understand how you communicate, where you can improve, and why it matters.",
     icon: Sparkles,
+    link: "interpret.blog"
   },
   {
     id: "automation-system",
-    title: "Automation System",
+    title: "Bot AI Agents",
     description:
       "A self-running content pipeline. Scripts, audio, visuals, publishing—all automated. Built cleanly, from concept to execution.",
     icon: Zap,
+    link: "github.com/shahzamanfr"
   },
   {
     id: "movella",
     title: "Movella",
     description:
-      "Adapting books into cinematic narratives. Stories preserved, visuals added, fully designed and ready to experience.",
+      "Adapting books into cinematic narratives. Stories preserved, visuals added, fully designed and ready to experience (Concept).",
     icon: Grid3x3,
   },
 ];
@@ -157,7 +160,10 @@ export default function Index() {
               Projects
             </a>
             <button
-              onClick={() => navigate("/")}
+              onClick={() => {
+                const element = document.getElementById("projects");
+                element?.scrollIntoView({ behavior: "smooth" });
+              }}
               className="px-6 py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:bg-primary/90 transition-all duration-200 interactive-button shadow-md hover:shadow-lg"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
@@ -203,7 +209,10 @@ export default function Index() {
           </p>
 
           <button
-            onClick={() => navigate("/")}
+            onClick={() => {
+              const element = document.getElementById("projects");
+              element?.scrollIntoView({ behavior: "smooth" });
+            }}
             className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-xl animate-slide-up interactive-button"
             style={{
               fontFamily: '"Inter", sans-serif',
@@ -238,19 +247,32 @@ export default function Index() {
                 <AnimateOnScroll key={project.id} delay={index * 100}>
                   <button
                     onClick={() => navigate(`/${project.id}`)}
-                    className="group text-left py-8 border-b border-border/30 hover:border-foreground/50 transition-all duration-500"
+                    className="group relative flex flex-col items-start text-left py-12 border-b border-border/30 transition-all duration-500 w-full"
                   >
-                    <h4
-                      className="text-2xl md:text-3xl font-medium text-foreground mb-4 group-hover:text-primary transition-colors duration-300"
-                      style={{
-                        fontFamily: '"Inter", sans-serif',
-                        fontWeight: 500,
-                      }}
-                    >
-                      {project.title}
-                    </h4>
+                    <div className="flex items-center justify-between w-full mb-4">
+                      <h4
+                        className="text-2xl md:text-3xl font-medium text-foreground group-hover:text-accent transition-colors duration-300"
+                        style={{
+                          fontFamily: '"Inter", sans-serif',
+                          fontWeight: 500,
+                        }}
+                      >
+                        {project.title}
+                      </h4>
+                      <div className="flex items-center gap-4 text-sm font-medium transition-all duration-300 translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
+                        {project.link && (
+                          <span className="text-muted-foreground/50 border-r border-border/50 pr-4">
+                            {project.link}
+                          </span>
+                        )}
+                        <span className="text-accent/70 group-hover:text-accent flex items-center gap-2">
+                          <span>Review</span>
+                          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                        </span>
+                      </div>
+                    </div>
                     <p
-                      className="text-base text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-300"
+                      className="text-base text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300"
                       style={{
                         fontFamily: '"Inter", sans-serif',
                         fontWeight: 400,
@@ -291,7 +313,10 @@ export default function Index() {
           </AnimateOnScroll>
           <AnimateOnScroll delay={200}>
             <button
-              onClick={() => navigate("/")}
+              onClick={() => {
+                const element = document.getElementById("projects");
+                element?.scrollIntoView({ behavior: "smooth" });
+              }}
               className="px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-200 hover:shadow-lg interactive-button"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
@@ -333,7 +358,7 @@ export default function Index() {
               className="text-xs text-muted-foreground/70 mt-2"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              © 2024 Review Platform. All rights reserved.
+              © 2026 Review Platform. All rights reserved.
             </p>
           </div>
         </div>

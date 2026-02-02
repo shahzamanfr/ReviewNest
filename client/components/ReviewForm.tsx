@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { Star } from "lucide-react";
 
-interface ReviewFormProps {
-  projectName: string;
-  onSubmit: (review: ReviewData) => void;
-}
-
 export interface ReviewData {
+  id?: string;
+  project_id?: string;
+  user_id?: string;
   name: string;
   overallRating: number;
   comment: string;
@@ -16,21 +14,39 @@ export interface ReviewData {
     website: number;
     usefulness: number;
   };
+  reply?: string;
+  created_at?: string;
 }
 
-export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
+interface ReviewFormProps {
+  projectName: string;
+  onSubmit: (review: ReviewData) => void;
+  editingReview?: ReviewData;
+  onCancel?: () => void;
+}
+
+export default function ReviewForm({
+  projectName,
+  onSubmit,
+  editingReview,
+  onCancel,
+}: ReviewFormProps) {
   const [step, setStep] = useState<"basic" | "detailed">("basic");
-  const [name, setName] = useState("");
-  const [comment, setComment] = useState("");
-  const [overallRating, setOverallRating] = useState(0);
+  const [name, setName] = useState(editingReview?.name || "");
+  const [comment, setComment] = useState(editingReview?.comment || "");
+  const [overallRating, setOverallRating] = useState(
+    editingReview?.overallRating || 0,
+  );
   const [hoveredRating, setHoveredRating] = useState(0);
 
-  const [detailedRating, setDetailedRating] = useState({
-    idea: 0,
-    ui: 0,
-    website: 0,
-    usefulness: 0,
-  });
+  const [detailedRating, setDetailedRating] = useState(
+    editingReview?.detailedRating || {
+      idea: 0,
+      ui: 0,
+      website: 0,
+      usefulness: 0,
+    },
+  );
   const [hoveredDetailed, setHoveredDetailed] = useState<string | null>(null);
 
   const handleBasicSubmit = (includeDetailed: boolean) => {
@@ -43,11 +59,12 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
       setStep("detailed");
     } else {
       onSubmit({
+        ...(editingReview?.id ? { id: editingReview.id } : {}),
         name,
         overallRating,
         comment,
       });
-      resetForm();
+      if (!editingReview) resetForm();
     }
   };
 
@@ -59,12 +76,13 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
     }
 
     onSubmit({
+      ...(editingReview?.id ? { id: editingReview.id } : {}),
       name,
       overallRating,
       comment,
       detailedRating,
     });
-    resetForm();
+    if (!editingReview) resetForm();
   };
 
   const resetForm = () => {
@@ -106,14 +124,13 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
                 >
                   <Star
                     size={18}
-                    className={`transition-colors ${
-                      star <=
+                    className={`transition-colors ${star <=
                       (hoveredDetailed === category
                         ? hoveredRating
                         : detailedRating[category])
-                        ? "fill-accent text-accent"
-                        : "text-muted"
-                    }`}
+                      ? "fill-accent text-accent"
+                      : "text-muted"
+                      }`}
                     onMouseEnter={() => setHoveredRating(star)}
                     onMouseLeave={() => setHoveredRating(0)}
                   />
@@ -136,7 +153,7 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
             className="flex-1 px-4 py-2.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 font-medium text-sm"
             style={{ fontFamily: '"Inter", sans-serif' }}
           >
-            Confirm
+            {editingReview ? "Save Changes" : "Confirm"}
           </button>
         </div>
       </div>
@@ -180,11 +197,10 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
             >
               <Star
                 size={20}
-                className={`transition-colors ${
-                  star <= (hoveredRating || overallRating)
-                    ? "fill-primary text-primary"
-                    : "text-muted"
-                }`}
+                className={`transition-colors ${star <= (hoveredRating || overallRating)
+                  ? "fill-primary text-primary"
+                  : "text-muted"
+                  }`}
               />
             </button>
           ))}
@@ -214,15 +230,26 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
           className="w-full px-4 py-3 rounded-lg bg-primary text-primary-foreground font-medium transition-all duration-200 hover:bg-primary/90 text-sm active:scale-95"
           style={{ fontFamily: '"Inter", sans-serif' }}
         >
-          Submit
+          {editingReview ? "Save Changes" : "Submit"}
         </button>
-        <button
-          onClick={() => handleBasicSubmit(true)}
-          className="w-full px-4 py-2.5 rounded-lg border border-border/40 hover:bg-secondary/20 transition-all duration-200 font-medium text-sm"
-          style={{ fontFamily: '"Inter", sans-serif' }}
-        >
-          More Details
-        </button>
+        {!editingReview && (
+          <button
+            onClick={() => handleBasicSubmit(true)}
+            className="w-full px-4 py-2.5 rounded-lg border border-border/40 hover:bg-secondary/20 transition-all duration-200 font-medium text-sm"
+            style={{ fontFamily: '"Inter", sans-serif' }}
+          >
+            More Details
+          </button>
+        )}
+        {editingReview && onCancel && (
+          <button
+            onClick={onCancel}
+            className="w-full px-4 py-2.5 rounded-lg border border-border/40 hover:bg-secondary/20 transition-all duration-200 font-medium text-sm"
+            style={{ fontFamily: '"Inter", sans-serif' }}
+          >
+            Cancel
+          </button>
+        )}
       </div>
     </div>
   );

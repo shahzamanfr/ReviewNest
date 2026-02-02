@@ -311,48 +311,19 @@ export default function Index() {
       {/* Footer */}
       <div className="border-t border-border/50 bg-background/50">
         <div className="container mx-auto px-4 md:px-6 py-16 max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-            <div>
-              <h4
-                className="text-sm font-semibold text-foreground mb-4 uppercase tracking-widest"
-                style={{ fontFamily: '"Inter", sans-serif' }}
-              >
-                About
-              </h4>
-              <p
-                className="text-sm text-muted-foreground leading-relaxed"
-                style={{ fontFamily: '"Inter", sans-serif' }}
-              >
-                A platform for sharing honest, constructive feedback on projects. Help creators improve through thoughtful reviews.
-              </p>
-            </div>
-            <div>
-              <h4
-                className="text-sm font-semibold text-foreground mb-4 uppercase tracking-widest"
-                style={{ fontFamily: '"Inter", sans-serif' }}
-              >
-                Projects
-              </h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="/merit-one" className="hover:text-foreground transition-colors">MeritOne</a></li>
-                <li><a href="/interpret" className="hover:text-foreground transition-colors">Interpret</a></li>
-                <li><a href="/automation-system" className="hover:text-foreground transition-colors">Automation System</a></li>
-                <li><a href="/movella" className="hover:text-foreground transition-colors">Movella</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4
-                className="text-sm font-semibold text-foreground mb-4 uppercase tracking-widest"
-                style={{ fontFamily: '"Inter", sans-serif' }}
-              >
-                Connect
-              </h4>
-              <div className="flex gap-4 text-sm text-muted-foreground">
-                <a href="#" className="hover:text-foreground transition-colors">Twitter</a>
-                <a href="#" className="hover:text-foreground transition-colors">GitHub</a>
-                <a href="#" className="hover:text-foreground transition-colors">Email</a>
-              </div>
-            </div>
+          <div className="max-w-2xl mx-auto mb-12">
+            <h4
+              className="text-sm font-semibold text-foreground mb-4 uppercase tracking-widest"
+              style={{ fontFamily: '"Inter", sans-serif' }}
+            >
+              About
+            </h4>
+            <p
+              className="text-base text-muted-foreground leading-relaxed"
+              style={{ fontFamily: '"Inter", sans-serif' }}
+            >
+              A platform for sharing honest, constructive feedback on projects. Help creators improve through thoughtful reviews.
+            </p>
           </div>
           <div className="border-t border-border/30 pt-8 text-center">
             <p

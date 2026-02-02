@@ -194,16 +194,6 @@ export default function Index() {
             </span>
           </h2>
 
-          <p
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up"
-            style={{
-              fontFamily: '"Inter", sans-serif',
-              fontWeight: 400,
-              animationDelay: "0.05s",
-            }}
-          >
-            Evaluate carefully. Review honestly.
-          </p>
 
           <blockquote
             className="text-xl md:text-2xl text-foreground max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up relative"

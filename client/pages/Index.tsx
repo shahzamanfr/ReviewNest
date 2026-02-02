@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, Lightbulb, Zap, Grid3x3, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import ParticleField from "../components/ParticleField";
+import GradientBg from "../components/GradientBg";
 
 const projects = [
   {
@@ -133,7 +133,7 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background overflow-hidden cursor-none">
-      <ParticleField />
+      <GradientBg />
       <CursorFollower />
 
       {/* Header/Navigation */}
@@ -146,23 +146,22 @@ export default function Index() {
               fontWeight: 500,
             }}
           >
-            ▲ SYSTEMS
+            ▲ REVIEW
           </h1>
-          <nav className="flex items-center gap-8">
+          <nav className="flex items-center gap-6">
             <a
-              href="#"
-              className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110"
+              href="#projects"
+              className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300"
+              style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              Work
+              Projects
             </a>
-            <a
-              href="#"
-              className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110"
+            <button
+              onClick={() => navigate("/")}
+              className="px-6 py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:bg-primary/90 transition-all duration-200 interactive-button shadow-md hover:shadow-lg"
+              style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              About
-            </a>
-            <button className="px-5 py-2 bg-foreground text-background text-sm font-medium rounded-full hover:opacity-90 transition-all duration-300 transform hover:scale-110 interactive-button shadow-lg hover:shadow-xl">
-              Get Started
+              Start
             </button>
           </nav>
         </div>
@@ -170,57 +169,48 @@ export default function Index() {
 
       {/* Hero Section with Particles */}
       <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <FloatingParticles />
-
         <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-6xl text-center">
           <h2
-            className="text-7xl md:text-8xl lg:text-9xl mb-8 mt-8 leading-tight animate-slide-up hero-heading"
+            className="text-6xl md:text-7xl lg:text-8xl mb-8 mt-8 leading-tight hero-heading-animate"
             style={{
               fontFamily: '"Sora", sans-serif',
               fontWeight: 400,
             }}
           >
-            <span
-              className="hero-heading-line"
-              style={{ animationDelay: "0.1s" }}
-            >
-              Build with
-            </span>
+            <span className="inline-block animate-text-reveal">Review</span>
             <br />
             <span
-              className="hero-heading-line relative inline-block"
-              style={{ animationDelay: "0.3s" }}
+              className="relative inline-block animate-text-reveal"
+              style={{ animationDelay: "0.2s" }}
             >
-              Intent
-              <div className="absolute bottom-2 left-0 w-full h-1 bg-gradient-to-r from-secondary to-primary opacity-50 animate-pulse"></div>
+              Nest
+              <div
+                className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-secondary to-primary animate-underline-reveal"
+                style={{ animationDelay: "0.8s" }}
+              ></div>
             </span>
           </h2>
 
           <p
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up"
+            className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up"
             style={{
               fontFamily: '"Inter", sans-serif',
-              fontWeight: 400,
-              animationDelay: "0.05s",
+              fontWeight: 300,
+              animationDelay: "0.15s",
             }}
           >
-            Real problems deserve practical solutions. We explore, iterate, and
-            build systems designed to last.
+            A lightweight platform to collect and display project reviews.
           </p>
 
           <button
-            onClick={() =>
-              document
-                .getElementById("projects")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="inline-flex items-center gap-3 px-8 py-4 bg-foreground text-background font-semibold rounded-full hover:opacity-90 transition-all duration-300 transform hover:scale-110 hover:shadow-2xl animate-slide-up interactive-button relative"
+            onClick={() => navigate("/")}
+            className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-xl animate-slide-up interactive-button"
             style={{
-              fontFamily: '"JetBrains Mono", monospace',
+              fontFamily: '"Inter", sans-serif',
               animationDelay: "0.1s",
             }}
           >
-            → Explore Our Work
+            Explore Projects
             <ArrowRight size={20} />
           </button>
         </div>
@@ -231,14 +221,14 @@ export default function Index() {
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <AnimateOnScroll>
             <h3
-              className="text-6xl md:text-7xl font-bold mb-20 text-center"
+              className="text-5xl md:text-6xl font-medium mb-20 text-center"
               style={{
-                fontFamily: '"IBM Plex Sans", sans-serif',
-                fontWeight: 600,
-                letterSpacing: "-0.02em",
+                fontFamily: '"Sora", sans-serif',
+                fontWeight: 400,
+                letterSpacing: "-0.01em",
               }}
             >
-              Our Systems
+              Projects
             </h3>
           </AnimateOnScroll>
 
@@ -281,64 +271,70 @@ export default function Index() {
         <div className="container mx-auto px-4 md:px-6 max-w-6xl text-center">
           <AnimateOnScroll>
             <h3
-              className="text-6xl md:text-7xl font-medium mb-8"
+              className="text-5xl md:text-6xl font-medium mb-8"
               style={{
                 fontFamily: '"Sora", sans-serif',
                 fontWeight: 400,
                 letterSpacing: "-0.01em",
               }}
             >
-              Ready to explore?
+              Ready to review?
             </h3>
           </AnimateOnScroll>
           <AnimateOnScroll delay={100}>
             <p
               className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12"
-              style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}
+              style={{ fontFamily: '"Inter", sans-serif', fontWeight: 300 }}
             >
-              Each system here started with genuine curiosity and evolved
-              through thinking, building, and iteration.
+              Your feedback can make a real difference.
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll delay={200}>
             <button
-              className="px-8 py-4 bg-foreground text-background font-semibold rounded-full hover:opacity-90 transition-all duration-300 transform hover:scale-110 hover:shadow-2xl interactive-button"
-              style={{ fontFamily: '"JetBrains Mono", monospace' }}
+              onClick={() => navigate("/")}
+              className="px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-200 hover:shadow-lg interactive-button"
+              style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              → View All Projects
+              Start Reviewing
             </button>
           </AnimateOnScroll>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="border-t border-border/50">
-        <div className="container mx-auto px-4 md:px-6 py-16 max-w-6xl text-center">
-          <p
-            className="text-sm text-muted-foreground"
-            style={{ fontFamily: '"IBM Plex Sans", sans-serif' }}
-          >
-            Built with engineering rigor. Your feedback shapes what comes next.
-          </p>
-          <div className="flex items-center justify-center gap-8 mt-8 text-xs text-muted-foreground">
-            <a
-              href="#"
-              className="hover:text-foreground transition-all duration-300 hover:scale-110"
+      <div className="border-t border-border/50 bg-background/50">
+        <div className="container mx-auto px-4 md:px-6 py-16 max-w-6xl">
+          <div className="max-w-2xl mx-auto mb-12">
+            <h4
+              className="text-sm font-semibold text-foreground mb-4 uppercase tracking-widest"
+              style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              Twitter
-            </a>
-            <a
-              href="#"
-              className="hover:text-foreground transition-all duration-300 hover:scale-110"
+              About
+            </h4>
+            <p
+              className="text-base text-muted-foreground leading-relaxed"
+              style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              GitHub
-            </a>
-            <a
-              href="#"
-              className="hover:text-foreground transition-all duration-300 hover:scale-110"
+              A platform for sharing honest, constructive feedback on projects.
+              Help creators improve through thoughtful reviews.
+            </p>
+          </div>
+          <div className="border-t border-border/30 pt-8 text-center">
+            <p
+              className="text-sm text-muted-foreground"
+              style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              Email
-            </a>
+              Built by{" "}
+              <span className="font-semibold text-foreground">
+                Mohammed Shahzaman
+              </span>
+            </p>
+            <p
+              className="text-xs text-muted-foreground/70 mt-2"
+              style={{ fontFamily: '"Inter", sans-serif' }}
+            >
+              © 2024 Review Platform. All rights reserved.
+            </p>
           </div>
         </div>
       </div>

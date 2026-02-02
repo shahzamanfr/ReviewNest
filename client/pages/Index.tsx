@@ -157,6 +157,7 @@ export default function Index() {
               Projects
             </a>
             <button
+              onClick={() => navigate('/')}
               className="px-6 py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:bg-primary/90 transition-all duration-200 interactive-button shadow-md hover:shadow-lg"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
@@ -198,11 +199,7 @@ export default function Index() {
           </p>
 
           <button
-            onClick={() =>
-              document
-                .getElementById("projects")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
+            onClick={() => navigate('/')}
             className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-xl animate-slide-up interactive-button"
             style={{
               fontFamily: '"Inter", sans-serif',
@@ -290,6 +287,7 @@ export default function Index() {
           </AnimateOnScroll>
           <AnimateOnScroll delay={200}>
             <button
+              onClick={() => navigate('/')}
               className="px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-200 hover:shadow-lg interactive-button"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >

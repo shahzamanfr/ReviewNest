@@ -78,14 +78,22 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
   if (step === "detailed") {
     return (
       <div className="space-y-6">
-        <h4 className="font-semibold text-foreground">Rate Specific Aspects</h4>
+        <h4
+          className="font-medium text-foreground text-base"
+          style={{ fontFamily: '"Sora", sans-serif', fontWeight: 400 }}
+        >
+          Rate Specific Aspects
+        </h4>
 
         {(["idea", "ui", "website", "usefulness"] as const).map((category) => (
           <div key={category}>
-            <label className="block text-sm font-medium text-foreground mb-2 capitalize">
+            <label
+              className="block text-sm text-muted-foreground mb-3 capitalize"
+              style={{ fontFamily: '"Inter", sans-serif' }}
+            >
               {category}
             </label>
-            <div className="flex gap-2">
+            <div className="flex gap-3">
               {[1, 2, 3, 4, 5].map((star) => (
                 <button
                   key={star}
@@ -94,10 +102,10 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
                   }
                   onMouseEnter={() => setHoveredDetailed(category)}
                   onMouseLeave={() => setHoveredDetailed(null)}
-                  className="p-1 hover:scale-110 transition-transform"
+                  className="p-1 hover:scale-125 transition-transform duration-150"
                 >
                   <Star
-                    size={24}
+                    size={20}
                     className={`transition-colors ${
                       star <=
                       (hoveredDetailed === category
@@ -115,16 +123,18 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
           </div>
         ))}
 
-        <div className="flex gap-3 pt-4">
+        <div className="flex gap-3 pt-6">
           <button
             onClick={() => setStep("basic")}
-            className="flex-1 px-4 py-2 rounded-lg border border-border hover:bg-secondary/30 transition-colors font-medium"
+            className="flex-1 px-4 py-2 rounded-lg border border-border hover:bg-secondary/20 transition-all duration-200 font-medium"
+            style={{ fontFamily: '"Inter", sans-serif' }}
           >
             Back
           </button>
           <button
             onClick={handleDetailedSubmit}
-            className="flex-1 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-medium"
+            className="flex-1 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 font-medium"
+            style={{ fontFamily: '"Inter", sans-serif' }}
           >
             Submit
           </button>
@@ -134,35 +144,42 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       <div>
-        <label className="block text-sm font-medium text-foreground mb-2">
-          Name
+        <label
+          className="block text-sm text-muted-foreground mb-3"
+          style={{ fontFamily: '"Inter", sans-serif' }}
+        >
+          Your Name
         </label>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Your name"
-          className="w-full px-3 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+          placeholder="Enter your name"
+          className="w-full px-4 py-2.5 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary transition-all text-sm"
+          style={{ fontFamily: '"Inter", sans-serif' }}
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-foreground mb-2">
-          Rating
+        <label
+          className="block text-sm text-muted-foreground mb-3"
+          style={{ fontFamily: '"Inter", sans-serif' }}
+        >
+          Overall Rating
         </label>
-        <div className="flex gap-2">
+        <div className="flex gap-3">
           {[1, 2, 3, 4, 5].map((star) => (
             <button
               key={star}
               onClick={() => setOverallRating(star)}
               onMouseEnter={() => setHoveredRating(star)}
               onMouseLeave={() => setHoveredRating(0)}
-              className="p-1 hover:scale-110 transition-transform"
+              className="p-1 hover:scale-125 transition-transform duration-150"
             >
               <Star
-                size={28}
+                size={24}
                 className={`transition-colors ${
                   star <= (hoveredRating || overallRating)
                     ? "fill-primary text-primary"
@@ -175,30 +192,36 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-foreground mb-2">
-          Comment
+        <label
+          className="block text-sm text-muted-foreground mb-3"
+          style={{ fontFamily: '"Inter", sans-serif' }}
+        >
+          Your Feedback
         </label>
         <textarea
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          placeholder="What did you think?"
+          placeholder="Share your thoughts..."
           rows={3}
-          className="w-full px-3 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none"
+          className="w-full px-4 py-2.5 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none text-sm"
+          style={{ fontFamily: '"Inter", sans-serif' }}
         />
       </div>
 
-      <div className="flex gap-3 pt-2">
+      <div className="flex gap-3 pt-3">
         <button
           onClick={() => handleBasicSubmit(false)}
-          className="flex-1 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-medium"
+          className="flex-1 px-4 py-2.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 font-medium text-sm"
+          style={{ fontFamily: '"Inter", sans-serif' }}
         >
           Submit
         </button>
         <button
           onClick={() => handleBasicSubmit(true)}
-          className="flex-1 px-4 py-2 rounded-lg border border-border hover:bg-secondary/30 transition-colors font-medium"
+          className="flex-1 px-4 py-2.5 rounded-lg border border-border hover:bg-secondary/20 transition-all duration-200 font-medium text-sm"
+          style={{ fontFamily: '"Inter", sans-serif' }}
         >
-          + Detailed Ratings
+          + Details
         </button>
       </div>
     </div>

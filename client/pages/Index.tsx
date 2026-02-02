@@ -133,7 +133,6 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background overflow-hidden cursor-none">
-      <ParticleField />
       <CursorFollower />
 
       {/* Header/Navigation */}

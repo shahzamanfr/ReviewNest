@@ -294,7 +294,7 @@ export default function Index() {
               className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12"
               style={{ fontFamily: '"Inter", sans-serif', fontWeight: 300 }}
             >
-              "Great work isn't created in isolation. It's refined through honest feedback and diverse perspectives."
+              Your feedback can make a real difference.
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll delay={200}>

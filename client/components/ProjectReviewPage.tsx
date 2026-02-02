@@ -155,19 +155,21 @@ export default function ProjectReviewPage({
                   Write a Review
                 </button>
               ) : (
-                <>
+                <div>
                   <ReviewForm
                     projectName={projectName}
                     onSubmit={handleSubmitReview}
                   />
-                  <button
-                    onClick={() => setShowForm(false)}
-                    className="w-full mt-4 px-4 py-3 rounded-lg border border-border text-foreground hover:bg-secondary/20 transition-all duration-200"
-                    style={{ fontFamily: '"Inter", sans-serif' }}
-                  >
-                    Cancel
-                  </button>
-                </>
+                  <div className="flex gap-2 pt-2 justify-end">
+                    <button
+                      onClick={() => setShowForm(false)}
+                      className="px-4 py-2 text-sm rounded hover:opacity-70 transition-all text-muted-foreground"
+                      style={{ fontFamily: '"Inter", sans-serif' }}
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
               )}
             </div>
           </div>

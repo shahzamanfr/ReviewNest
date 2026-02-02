@@ -77,18 +77,18 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
 
   if (step === "detailed") {
     return (
-      <div className="space-y-6">
+      <div className="space-y-7">
         <h4
-          className="font-medium text-foreground text-base"
+          className="font-medium text-foreground"
           style={{ fontFamily: '"Sora", sans-serif', fontWeight: 400 }}
         >
-          Rate Specific Aspects
+          Detailed Ratings
         </h4>
 
         {(["idea", "ui", "website", "usefulness"] as const).map((category) => (
           <div key={category}>
             <label
-              className="block text-sm text-muted-foreground mb-3 capitalize"
+              className="block text-xs text-muted-foreground mb-2.5 uppercase tracking-wider font-medium capitalize"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
               {category}
@@ -102,10 +102,10 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
                   }
                   onMouseEnter={() => setHoveredDetailed(category)}
                   onMouseLeave={() => setHoveredDetailed(null)}
-                  className="p-1 hover:scale-125 transition-transform duration-150"
+                  className="transition-transform duration-150 hover:scale-125"
                 >
                   <Star
-                    size={20}
+                    size={18}
                     className={`transition-colors ${
                       star <=
                       (hoveredDetailed === category
@@ -123,20 +123,20 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
           </div>
         ))}
 
-        <div className="flex gap-3 pt-6">
+        <div className="flex gap-2.5 pt-4">
           <button
             onClick={() => setStep("basic")}
-            className="flex-1 px-4 py-2 rounded-lg border border-border hover:bg-secondary/20 transition-all duration-200 font-medium"
+            className="flex-1 px-4 py-2.5 rounded border border-border/40 hover:bg-secondary/20 transition-all duration-200 font-medium text-sm"
             style={{ fontFamily: '"Inter", sans-serif' }}
           >
             Back
           </button>
           <button
             onClick={handleDetailedSubmit}
-            className="flex-1 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 font-medium"
+            className="flex-1 px-4 py-2.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 font-medium text-sm"
             style={{ fontFamily: '"Inter", sans-serif' }}
           >
-            Submit
+            Confirm
           </button>
         </div>
       </div>

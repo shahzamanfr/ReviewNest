@@ -201,8 +201,7 @@ export default function Index() {
               animationDelay: "0.05s",
             }}
           >
-            Review projects built with care and intention. Share your honest
-            feedback and help shape what comes next.
+            Evaluate carefully. Review honestly.
           </p>
 
           <button

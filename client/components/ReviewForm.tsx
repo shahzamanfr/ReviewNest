@@ -144,42 +144,42 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
   }
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       <div>
         <label
-          className="block text-sm text-muted-foreground mb-3"
-          style={{ fontFamily: '"Inter", sans-serif' }}
+          className="block text-xs text-muted-foreground mb-2.5 uppercase tracking-wide"
+          style={{ fontFamily: '"Inter", sans-serif', fontWeight: 500 }}
         >
-          Your Name
+          Name
         </label>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Enter your name"
-          className="w-full px-4 py-2.5 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary transition-all text-sm"
+          placeholder="Your name"
+          className="w-full px-3.5 py-2.5 rounded border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm placeholder:text-muted-foreground/60"
           style={{ fontFamily: '"Inter", sans-serif' }}
         />
       </div>
 
       <div>
         <label
-          className="block text-sm text-muted-foreground mb-3"
-          style={{ fontFamily: '"Inter", sans-serif' }}
+          className="block text-xs text-muted-foreground mb-3 uppercase tracking-wide"
+          style={{ fontFamily: '"Inter", sans-serif', fontWeight: 500 }}
         >
-          Overall Rating
+          Rating
         </label>
-        <div className="flex gap-3">
+        <div className="flex gap-4">
           {[1, 2, 3, 4, 5].map((star) => (
             <button
               key={star}
               onClick={() => setOverallRating(star)}
               onMouseEnter={() => setHoveredRating(star)}
               onMouseLeave={() => setHoveredRating(0)}
-              className="p-1 hover:scale-125 transition-transform duration-150"
+              className="transition-transform duration-150 hover:scale-110"
             >
               <Star
-                size={24}
+                size={22}
                 className={`transition-colors ${
                   star <= (hoveredRating || overallRating)
                     ? "fill-primary text-primary"
@@ -193,35 +193,35 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
 
       <div>
         <label
-          className="block text-sm text-muted-foreground mb-3"
-          style={{ fontFamily: '"Inter", sans-serif' }}
+          className="block text-xs text-muted-foreground mb-2.5 uppercase tracking-wide"
+          style={{ fontFamily: '"Inter", sans-serif', fontWeight: 500 }}
         >
-          Your Feedback
+          Comment
         </label>
         <textarea
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          placeholder="Share your thoughts..."
+          placeholder="What do you think..."
           rows={3}
-          className="w-full px-4 py-2.5 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none text-sm"
+          className="w-full px-3.5 py-2.5 rounded border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none text-sm placeholder:text-muted-foreground/60"
           style={{ fontFamily: '"Inter", sans-serif' }}
         />
       </div>
 
-      <div className="flex gap-3 pt-3">
+      <div className="pt-2 space-y-2">
         <button
           onClick={() => handleBasicSubmit(false)}
-          className="flex-1 px-4 py-2.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 font-medium text-sm"
+          className="w-full px-4 py-3 rounded-lg bg-primary text-primary-foreground font-medium transition-all duration-200 hover:bg-primary/90 transform hover:scale-105 text-sm"
           style={{ fontFamily: '"Inter", sans-serif' }}
         >
-          Submit
+          Submit Review
         </button>
         <button
           onClick={() => handleBasicSubmit(true)}
-          className="flex-1 px-4 py-2.5 rounded-lg border border-border hover:bg-secondary/20 transition-all duration-200 font-medium text-sm"
+          className="w-full px-4 py-3 rounded-lg border border-border hover:bg-secondary/20 transition-all duration-200 font-medium text-sm"
           style={{ fontFamily: '"Inter", sans-serif' }}
         >
-          + Details
+          Add Detailed Ratings
         </button>
       </div>
     </div>

@@ -147,8 +147,8 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
     <div className="space-y-6">
       <div>
         <label
-          className="block text-xs text-muted-foreground mb-2.5 uppercase tracking-wide"
-          style={{ fontFamily: '"Inter", sans-serif', fontWeight: 500 }}
+          className="block text-xs text-muted-foreground mb-2 uppercase tracking-wider font-medium"
+          style={{ fontFamily: '"Inter", sans-serif' }}
         >
           Name
         </label>
@@ -157,29 +157,29 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Your name"
-          className="w-full px-3.5 py-2.5 rounded border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm placeholder:text-muted-foreground/60"
+          className="w-full px-3 py-2 rounded bg-secondary/30 border border-border/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all text-sm placeholder:text-muted-foreground/50"
           style={{ fontFamily: '"Inter", sans-serif' }}
         />
       </div>
 
       <div>
         <label
-          className="block text-xs text-muted-foreground mb-3 uppercase tracking-wide"
-          style={{ fontFamily: '"Inter", sans-serif', fontWeight: 500 }}
+          className="block text-xs text-muted-foreground mb-3 uppercase tracking-wider font-medium"
+          style={{ fontFamily: '"Inter", sans-serif' }}
         >
-          Rating
+          Rate It
         </label>
-        <div className="flex gap-4">
+        <div className="flex gap-3">
           {[1, 2, 3, 4, 5].map((star) => (
             <button
               key={star}
               onClick={() => setOverallRating(star)}
               onMouseEnter={() => setHoveredRating(star)}
               onMouseLeave={() => setHoveredRating(0)}
-              className="transition-transform duration-150 hover:scale-110"
+              className="transition-transform duration-150 hover:scale-125"
             >
               <Star
-                size={22}
+                size={20}
                 className={`transition-colors ${
                   star <= (hoveredRating || overallRating)
                     ? "fill-primary text-primary"
@@ -193,17 +193,17 @@ export default function ReviewForm({ projectName, onSubmit }: ReviewFormProps) {
 
       <div>
         <label
-          className="block text-xs text-muted-foreground mb-2.5 uppercase tracking-wide"
-          style={{ fontFamily: '"Inter", sans-serif', fontWeight: 500 }}
+          className="block text-xs text-muted-foreground mb-2 uppercase tracking-wider font-medium"
+          style={{ fontFamily: '"Inter", sans-serif' }}
         >
-          Comment
+          Thoughts
         </label>
         <textarea
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          placeholder="What do you think..."
+          placeholder="Share your feedback..."
           rows={3}
-          className="w-full px-3.5 py-2.5 rounded border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none text-sm placeholder:text-muted-foreground/60"
+          className="w-full px-3 py-2 rounded bg-secondary/30 border border-border/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all resize-none text-sm placeholder:text-muted-foreground/50"
           style={{ fontFamily: '"Inter", sans-serif' }}
         />
       </div>

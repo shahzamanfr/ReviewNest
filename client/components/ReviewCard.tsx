@@ -143,7 +143,7 @@ export default function ReviewCard({
           >
             Technical Breakdown
           </p>
-          <div className="grid grid-cols-2 gap-6 mb-6">
+          <div className="grid grid-cols-2 gap-6">
             {Object.entries(review.detailedRating).map(([key, value]) => (
               <div key={key}>
                 <p
@@ -167,20 +167,6 @@ export default function ReviewCard({
               </div>
             ))}
           </div>
-
-          {review.detailedComment && (
-            <div className="bg-secondary/10 rounded-lg p-4 border border-border/20">
-              <p className="text-[10px] uppercase font-bold text-muted-foreground/70 mb-2 tracking-widest">
-                Technical Feedback
-              </p>
-              <p
-                className="text-xs md:text-sm text-foreground/80 italic leading-relaxed"
-                style={{ fontFamily: '"Inter", sans-serif' }}
-              >
-                "{review.detailedComment}"
-              </p>
-            </div>
-          )}
         </div>
       )}
     </div>

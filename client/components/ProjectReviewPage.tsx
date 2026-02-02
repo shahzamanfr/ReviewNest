@@ -57,7 +57,6 @@ export default function ProjectReviewPage({
         overallRating: r.overall_rating,
         comment: r.comment,
         detailedRating: r.detailed_rating,
-        detailedComment: r.detailed_comment,
         reply: r.reply,
         created_at: r.created_at,
       }));
@@ -104,7 +103,6 @@ export default function ProjectReviewPage({
             overall_rating: review.overallRating,
             comment: review.comment,
             detailed_rating: review.detailedRating,
-            detailed_comment: review.detailedComment,
           })
           .eq("id", review.id);
 
@@ -120,7 +118,6 @@ export default function ProjectReviewPage({
             overall_rating: review.overallRating,
             comment: review.comment,
             detailed_rating: review.detailedRating,
-            detailed_comment: review.detailedComment,
           },
         ]);
 

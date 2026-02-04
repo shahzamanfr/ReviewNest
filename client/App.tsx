@@ -20,7 +20,7 @@ const queryClient = new QueryClient();
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!PUBLISHABLE_KEY) {
-  throw new Error("Missing Publishable Key");
+  console.error("❌ ERROR: Missing VITE_CLERK_PUBLISHABLE_KEY. The application will not function correctly without authentication. Please add it to your environment variables (local .env or AWS Amplify settings).");
 }
 
 const App = () => (

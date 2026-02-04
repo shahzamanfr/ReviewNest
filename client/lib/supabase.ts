@@ -13,12 +13,20 @@ export const supabase = createClient(supabaseUrl || "", supabaseAnonKey || "");
 
 // Simple session-based ID for anonymous auth
 const getSessionId = () => {
-    let id = localStorage.getItem("review_nest_session_id");
-    if (!id) {
-        id = crypto.randomUUID();
-        localStorage.setItem("review_nest_session_id", id);
+    try {
+        let id = localStorage.getItem("review_nest_session_id");
+        if (!id) {
+            // Fallback for crypto.randomUUID() in non-secure contexts
+            id = (typeof crypto !== 'undefined' && crypto.randomUUID)
+                ? crypto.randomUUID()
+                : Math.random().toString(36).substring(2) + Date.now().toString(36);
+            localStorage.setItem("review_nest_session_id", id);
+        }
+        return id;
+    } catch (e) {
+        console.warn("Storage or Crypto error:", e);
+        return "anon-" + Date.now();
     }
-    return id;
 };
 
 export const sessionId = getSessionId();

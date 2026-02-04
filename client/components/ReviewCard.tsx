@@ -1,6 +1,6 @@
 import { Star, Edit2, Trash2 } from "lucide-react";
 import { ReviewData } from "./ReviewForm";
-import { sessionId } from "../lib/supabase";
+import { useUser } from "@clerk/clerk-react";
 
 interface ReviewCardProps {
   review: ReviewData;
@@ -15,7 +15,9 @@ export default function ReviewCard({
   onEdit,
   onDelete,
 }: ReviewCardProps) {
+  const { user } = useUser();
   const getInitials = (name: string) => {
+    // ... existing getInitials and getBackgroundColor ...
     return name
       .split(" ")
       .map((n) => n[0])
@@ -101,7 +103,7 @@ export default function ReviewCard({
             </div>
           </div>
           <div className="flex gap-1.5 opacity-0 group-hover/card:opacity-100 transition-opacity">
-            {onEdit && review.user_id === sessionId && (
+            {onEdit && review.user_id === user?.id && (
               <button
                 onClick={() => onEdit(review)}
                 className="p-1.5 rounded-full hover:bg-secondary/20 text-muted-foreground hover:text-primary transition-colors"
@@ -110,7 +112,7 @@ export default function ReviewCard({
                 <Edit2 size={14} />
               </button>
             )}
-            {onDelete && review.id && review.user_id === sessionId && (
+            {onDelete && review.id && review.user_id === user?.id && (
               <button
                 onClick={() => onDelete(review.id!)}
                 className="p-1.5 rounded-full hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors"

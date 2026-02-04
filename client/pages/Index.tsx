@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { ArrowRight, Lightbulb, Zap, Grid3x3, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import GradientBg from "../components/GradientBg";
+import AuthButton from "../components/AuthButton";
 
 const projects = [
   {
@@ -143,32 +144,33 @@ export default function Index() {
       <div className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl animate-fade-in">
         <div className="container mx-auto px-4 md:px-6 py-4 max-w-7xl flex items-center justify-between">
           <h1
-            className="text-[11px] md:text-sm font-semibold tracking-[0.15em] md:tracking-[0.2em] text-foreground flex items-center gap-1.5"
+            className="text-xs md:text-sm font-semibold tracking-wider md:tracking-[0.2em] text-foreground flex items-center gap-1.5"
             style={{
               fontFamily: '"JetBrains Mono", monospace',
               fontWeight: 500,
             }}
           >
             <span className="text-primary hidden sm:inline">▲</span>
-            <span className="flex flex-wrap items-baseline gap-1">
+            <span className="flex items-baseline gap-1">
               <span>REVIEW NEST</span>
-              <span className="text-muted-foreground font-normal overflow-visible">SHAHZAMAN</span>
+              <span className="text-muted-foreground font-normal hidden xs:inline">SHAHZAMAN</span>
             </span>
           </h1>
-          <nav className="flex items-center gap-6">
+          <nav className="flex items-center gap-2 md:gap-6">
             <a
               href="#projects"
-              className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300"
+              className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hidden md:block"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
               Projects
             </a>
+            <AuthButton />
             <button
               onClick={() => {
                 const element = document.getElementById("projects");
                 element?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="px-6 py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:bg-primary/90 transition-all duration-200 interactive-button shadow-md hover:shadow-lg"
+              className="px-4 md:px-6 py-2 md:py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:bg-primary/90 transition-all duration-200 interactive-button shadow-md hover:shadow-lg whitespace-nowrap"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
               Start

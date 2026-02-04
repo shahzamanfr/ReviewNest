@@ -12,27 +12,37 @@ import Interpret from "./pages/Interpret";
 import AutomationSystem from "./pages/AutomationSystem";
 import Movella from "./pages/Movella";
 import NotFound from "./pages/NotFound";
+import { ClerkProvider } from "@clerk/clerk-react";
 
 const queryClient = new QueryClient();
 
+// Import your Publishable Key
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
+if (!PUBLISHABLE_KEY) {
+  throw new Error("Missing Publishable Key");
+}
+
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/merit-one" element={<MeritOne />} />
-          <Route path="/interpret" element={<Interpret />} />
-          <Route path="/automation-system" element={<AutomationSystem />} />
-          <Route path="/movella" element={<Movella />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/merit-one" element={<MeritOne />} />
+            <Route path="/interpret" element={<Interpret />} />
+            <Route path="/automation-system" element={<AutomationSystem />} />
+            <Route path="/movella" element={<Movella />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </ClerkProvider>
 );
 
 createRoot(document.getElementById("root")!).render(<App />);

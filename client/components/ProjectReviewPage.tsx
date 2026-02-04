@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Loader2 } from "lucide-react";
 import ReviewForm, { ReviewData } from "./ReviewForm";
 import ReviewCard from "./ReviewCard";
-import { supabase, sessionId } from "../lib/supabase";
+import { supabase, isSupabaseConfigured } from "../lib/supabase";
+import { useUser, SignInButton, UserButton } from "@clerk/clerk-react";
 import { toast } from "sonner";
+import { AlertCircle } from "lucide-react";
 import {
   Radar,
   RadarChart,
@@ -32,6 +34,7 @@ export default function ProjectReviewPage({
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(true);
   const [editingReview, setEditingReview] = useState<ReviewData | null>(null);
+  const { user, isSignedIn, isLoaded } = useUser();
 
   useEffect(() => {
     fetchReviews();
@@ -113,8 +116,8 @@ export default function ProjectReviewPage({
         const { error } = await supabase.from("reviews").insert([
           {
             project_id: projectName,
-            user_id: sessionId,
-            name: review.name,
+            user_id: user?.id || "anonymous",
+            name: user?.fullName || review.name,
             overall_rating: review.overallRating,
             comment: review.comment,
             detailed_rating: review.detailedRating,
@@ -175,6 +178,17 @@ export default function ProjectReviewPage({
           </Link>
         </div>
       </div>
+
+      {!isSupabaseConfigured && (
+        <div className="bg-destructive/10 border-b border-destructive/20 py-2">
+          <div className="container mx-auto px-4 max-w-6xl flex items-center gap-2 text-destructive">
+            <AlertCircle size={14} />
+            <span className="text-[10px] md:text-xs font-medium uppercase tracking-wider">
+              Database Connection Required: Please configure Supabase variables in your environment.
+            </span>
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <div className="border-b border-border bg-gradient-to-b from-card/30 to-background">
@@ -310,10 +324,10 @@ export default function ProjectReviewPage({
                     review={review}
                     index={idx}
                     onEdit={
-                      review.user_id === sessionId ? handleEditClick : undefined
+                      review.user_id === user?.id ? handleEditClick : undefined
                     }
                     onDelete={
-                      review.user_id === sessionId
+                      review.user_id === user?.id
                         ? handleDeleteReview
                         : undefined
                     }
@@ -348,26 +362,39 @@ export default function ProjectReviewPage({
                   Write a Review
                 </button>
               ) : (
-                <div>
-                  <ReviewForm
-                    projectName={projectName}
-                    onSubmit={handleSubmitReview}
-                    editingReview={editingReview || undefined}
-                    onCancel={() => {
-                      setShowForm(false);
-                      setEditingReview(null);
-                    }}
-                  />
-                  {!editingReview && (
-                    <div className="flex gap-2 pt-2 justify-end">
-                      <button
-                        onClick={() => setShowForm(false)}
-                        className="px-4 py-2 text-sm rounded hover:opacity-70 transition-all text-muted-foreground"
-                        style={{ fontFamily: '"Inter", sans-serif' }}
-                      >
-                        Close
-                      </button>
+                <div className="space-y-4">
+                  {!isSignedIn ? (
+                    <div className="text-center space-y-4">
+                      <p className="text-sm text-muted-foreground">Please sign in to leave a review.</p>
+                      <SignInButton mode="modal">
+                        <button className="w-full px-4 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all duration-200 transform hover:scale-105 shadow-lg shadow-primary/20">
+                          Sign In
+                        </button>
+                      </SignInButton>
                     </div>
+                  ) : (
+                    <>
+                      <ReviewForm
+                        projectName={projectName}
+                        onSubmit={handleSubmitReview}
+                        editingReview={editingReview || undefined}
+                        onCancel={() => {
+                          setShowForm(false);
+                          setEditingReview(null);
+                        }}
+                      />
+                      {!editingReview && (
+                        <div className="flex gap-2 pt-2 justify-end">
+                          <button
+                            onClick={() => setShowForm(false)}
+                            className="px-4 py-2 text-sm rounded hover:opacity-70 transition-all text-muted-foreground"
+                            style={{ fontFamily: '"Inter", sans-serif' }}
+                          >
+                            Close
+                          </button>
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               )}

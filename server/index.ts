@@ -1,13 +1,16 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import { handleDemo } from "./routes/demo";
+// import { authRouter } from "./routes/auth"; // Removed legacy auth
 
 export function createServer() {
   const app = express();
 
   // Middleware
   app.use(cors());
+  app.use(cookieParser());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
@@ -18,6 +21,7 @@ export function createServer() {
   });
 
   app.get("/api/demo", handleDemo);
+  // app.use("/api/auth", authRouter); // Removed legacy auth
 
   return app;
 }

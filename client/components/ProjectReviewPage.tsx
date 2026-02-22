@@ -167,7 +167,7 @@ export default function ProjectReviewPage({
     <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="border-b border-border sticky top-0 bg-background/95 backdrop-blur-sm z-50">
-        <div className="container mx-auto px-4 py-3 md:py-4 max-w-6xl">
+        <div className="container mx-auto px-4 py-3 md:py-4 max-w-6xl flex items-center justify-between">
           <Link
             to="/"
             className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors text-xs md:text-sm"
@@ -176,6 +176,19 @@ export default function ProjectReviewPage({
             <ArrowLeft size={16} className="md:w-[18px] md:h-[18px]" />
             <span>Back</span>
           </Link>
+          <div
+            className="text-[10px] md:text-sm font-semibold tracking-wider md:tracking-[0.2em] text-foreground flex items-center gap-1.5"
+            style={{
+              fontFamily: '"JetBrains Mono", monospace',
+              fontWeight: 500,
+            }}
+          >
+            <span className="text-primary text-[10px] md:text-xs shrink-0">▲</span>
+            <span className="flex items-baseline gap-1.5 md:gap-2">
+              <span className="whitespace-nowrap">REVIEW NEST</span>
+              <span className="text-muted-foreground font-normal text-[9px] md:text-xs opacity-80 uppercase shrink-0">SHAHZAMAN</span>
+            </span>
+          </div>
         </div>
       </div>
 

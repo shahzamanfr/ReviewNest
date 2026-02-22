@@ -150,10 +150,10 @@ export default function Index() {
               fontWeight: 500,
             }}
           >
-            <span className="text-primary hidden sm:inline">▲</span>
-            <span className="flex items-baseline gap-1">
-              <span>REVIEW NEST</span>
-              <span className="text-muted-foreground font-normal hidden xs:inline">SHAHZAMAN</span>
+            <span className="text-primary text-[10px] md:text-sm shrink-0">▲</span>
+            <span className="flex items-baseline gap-1.5 md:gap-2 overflow-hidden">
+              <span className="whitespace-nowrap">REVIEW NEST</span>
+              <span className="text-muted-foreground font-normal text-[9px] md:text-xs tracking-normal opacity-80 uppercase shrink-0">SHAHZAMAN</span>
             </span>
           </h1>
           <nav className="flex items-center gap-2 md:gap-6">
